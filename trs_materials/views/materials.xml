@@ -1,0 +1,66 @@
+<odoo>
+    <!-- Tree/List view of Master Materials -->
+    <record id="master_materials_view_tree" model="ir.ui.view">
+        <field name="name">master.materials.view.tree</field>
+        <field name="model">master.materials</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code" />
+                <field name="name" />
+                <field name="type" />
+                <field name="buy_price" />
+                <field name="supplier_id" />
+            </tree>
+        </field>
+    </record>
+ 
+    <!-- View Form of Master Materials -->
+    <record id="master_materials_view_form" model="ir.ui.view">
+        <field name="name">master.materials.view.form</field>
+        <field name="model">master.materials</field>
+        <field name="arch" type="xml">
+            <form string="Material">
+                <sheet>
+                    <group>
+                        <field name="code" required="1" />
+                        <field name="name" required="1" />
+                        <field name="type" required="1" />
+                        <field name="buy_price" required="1" type="number" />
+                        <field name="supplier_id" required="1" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action for Master Materials -->
+    <record id="action_master_materials" model="ir.actions.act_window">
+        <field name="name">Materials</field>
+        <field name="res_model">master.materials</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p name="o_view_nocontent_smiling_face">
+                Create Materials Data
+            </p>
+        </field>
+    </record>
+
+    <!-- Pre-made filter -->
+    <record id="action_master_materials_view_tree" model="ir.ui.view">
+        <field name="name">Material Type Filters</field>
+        <field name="model">master.materials</field>
+        <field name="arch" type="xml">
+            <search string="Material Type Filters">
+                <filter string="Fabric Material" name="filter_1" domain="[('type', '=', 'fabric')]"/>
+                <filter string="Jeans Material" name="filter_2" domain="[('type', '=', 'jeans')]"/>
+                <filter string="Cotton Material" name="filter_2" domain="[('type', '=', 'cotton')]"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Parent Menu -->
+    <menuitem id="menu_parent_master_materials" name="Master Materials" sequence="1" />
+
+    <!-- Master Materials Menu -->
+    <menuitem id="menu_master_materials" name="Materials" sequence="1" parent="menu_parent_master_materials" action="action_master_materials" />
+</odoo>
