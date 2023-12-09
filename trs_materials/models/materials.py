@@ -20,4 +20,4 @@ class Materials(models.Model):
         min_value = 100
         for record in self:
             if record.buy_price < min_value:
-                raise ValidationError('The value must be greater than or equal to {}'.format(min_value))
+                raise ValidationError('The value must be greater than {}'.format(min_value))

@@ -51,9 +51,9 @@
         <field name="model">master.materials</field>
         <field name="arch" type="xml">
             <search string="Material Type Filters">
-                <filter string="Fabric Material" name="filter_1" domain="[('type', '=', 'fabric')]"/>
-                <filter string="Jeans Material" name="filter_2" domain="[('type', '=', 'jeans')]"/>
-                <filter string="Cotton Material" name="filter_2" domain="[('type', '=', 'cotton')]"/>
+                <filter string="Fabric Material" name="filter_fabric" domain="[('type', '=', 'fabric')]"/>
+                <filter string="Jeans Material" name="filter_jeans" domain="[('type', '=', 'jeans')]"/>
+                <filter string="Cotton Material" name="filter_cotton" domain="[('type', '=', 'cotton')]"/>
             </search>
         </field>
     </record>
